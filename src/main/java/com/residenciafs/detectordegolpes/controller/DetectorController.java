@@ -1,8 +1,8 @@
 package com.residenciafs.detectordegolpes.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.residenciafs.detectordegolpes.dto.MensagemRequest;
+import com.residenciafs.detectordegolpes.dto.MensagemResponse;
+import org.springframework.web.bind.annotation.*;
 
 //define que o retorno do metodo com a rota vai ir pro corpo da página
 @RestController
@@ -14,5 +14,8 @@ public class DetectorController {
         return "<h1>hello world</h1>";
     }
 
-
+    @PostMapping
+    public MensagemResponse analisarRequest (@RequestBody MensagemRequest request){
+        return new MensagemResponse(true, "é um golpe", 100);
+    }
 }
