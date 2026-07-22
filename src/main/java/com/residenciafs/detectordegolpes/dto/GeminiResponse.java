@@ -10,6 +10,7 @@ public record GeminiResponse(List<Candidate> candidates) {
     public String extrairTexto(){
         if(candidates==null || candidates.isEmpty())return "";
         return candidates.get(0).content().parts().get(0).text();
+        //Pega o primeiro candidato da lista (get(0)), entra no conteúdo dele, pega a primeira parte da lista de partes (get(0)), e extrai a String de texto.
     }
-    //to terminando(vou dar commit pra juntar rapidinho!)
+
 }
