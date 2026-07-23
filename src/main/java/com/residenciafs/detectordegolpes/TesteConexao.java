@@ -24,6 +24,7 @@ public class TesteConexao implements CommandLineRunner {
         String promptGemini = prompt.render(
                 Map.of("mensagem", mensagem)
         );
-        geminiService.analisarMensagemBase(promptGemini);
+        String resposta = geminiService.analisarMensagemBase(promptGemini);
+        System.out.println("Respota: " + resposta);
     }
 }

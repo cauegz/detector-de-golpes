@@ -11,8 +11,9 @@
 </contexto>
 
 <formato>
-{
+Responda um JSON válido com os seguintes campos
+
     "porcentagemGolpe": (um valor de 0 a 100)
     "mensagem": (a mesnagem que você gerou)
-}
+
 </formato>
