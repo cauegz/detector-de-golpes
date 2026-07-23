@@ -10,6 +10,12 @@
     Você irá retornar um feedback para um usuário sobre uma mensagem suspeita que recebeu, mostrando a possibilidade da mensagem ser criminosa
 </contexto>
 
+<regras>
+    1. NUNCA retorne markdown
+    2. NUNCA retorne texto fora do JSON
+    3. Se a mensagem do usuário for vazio retorne o porcentagemGolpe como -1 e a mensagem vazia
+</regras>
+
 <formato>
 Responda um JSON válido com os seguintes campos
 

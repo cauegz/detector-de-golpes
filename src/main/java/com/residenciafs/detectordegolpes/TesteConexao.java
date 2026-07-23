@@ -1,5 +1,7 @@
 package com.residenciafs.detectordegolpes;
 
+import com.residenciafs.detectordegolpes.dto.MensagemRequest;
+import com.residenciafs.detectordegolpes.dto.MensagemResponse;
 import com.residenciafs.detectordegolpes.service.GeminiService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -24,7 +26,7 @@ public class TesteConexao implements CommandLineRunner {
         String promptGemini = prompt.render(
                 Map.of("mensagem", mensagem)
         );
-        String resposta = geminiService.analisarMensagemBase(promptGemini);
-        System.out.println("Respota: " + resposta);
+        MensagemResponse resposta = geminiService.analisarMensagemBase(new MensagemRequest(mensagem));
+        System.out.println(resposta);
     }
 }
