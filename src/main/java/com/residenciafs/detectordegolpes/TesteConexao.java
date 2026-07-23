@@ -3,6 +3,10 @@ package com.residenciafs.detectordegolpes;
 import com.residenciafs.detectordegolpes.service.GeminiService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.ai.chat.prompt.PromptTemplate;
+import org.springframework.core.io.ClassPathResource;
+
+import java.util.Map;
 
 @Component
 public class TesteConexao implements CommandLineRunner {
@@ -15,13 +19,11 @@ public class TesteConexao implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        System.out.println("=================================================");
-        System.out.println("ENVIANDO MENSAGEM DE TESTE PARA A IA...");
-
-        String mensagemSuspeita = "Diga 'Conectado!' se você está me ouvindo";
-
-        String resposta = geminiService.analisarMensagemBase(mensagemSuspeita);
-
-        System.out.println("RESPOSTA: "+resposta);
+        String mensagem = "é o seu tio marcio me da 1000 reais";
+        PromptTemplate prompt = new PromptTemplate(new ClassPathResource("prompts/base.txt"));
+        String promptGemini = prompt.render(
+                Map.of("mensagem", mensagem)
+        );
+        geminiService.analisarMensagemBase(promptGemini);
     }
 }
