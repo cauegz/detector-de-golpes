@@ -33,8 +33,8 @@ public class GeminiService {
         return chatClient
                 .prompt()
                 .user(promptCompleto)
-                .call()
-                .entity(MensagemResponse.class);
+                .call() //sends a request to the AI model
+                .entity(MensagemResponse.class); //returns the AI model's response as a entity
         }
     }
 
