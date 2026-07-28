@@ -28,7 +28,12 @@ public class GeminiService {
                 new PromptTemplate(resource);
 
         String promptCompleto = promptTemplate.render(
-                Map.of("mensagem", mensagem)
+                Map.of(
+                    "mensagem", mensagem.mensagem(),
+                    "empresa", mensagem.empresa(),
+                    "meioComunicacao", mensagem.meioComunicacao(),
+                    "contexto", mensagem.contexto()
+                )
         );
         return chatClient
                 .prompt()
