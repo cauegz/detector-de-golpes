@@ -28,6 +28,8 @@ comunicar com o usuário, se o meio de comunicação for oficial você deve espe
         - 5 = existem alguns indícios, mas não são conclusivos;
         - 10 = fortíssimo indício de golpe.
     8. Nunca utilize escalas diferentes para critérios diferentes. Em todos eles, valores maiores significam maior probabilidade de golpe.
+    9. O JSON deve conter APENAS os campos especificados em <formato>.
+    10. Não adicione campos extras, mesmo que julgue úteis.
 </regras>
 
 <criterios>
