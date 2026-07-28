@@ -15,5 +15,6 @@ public record MensagemResponse(
         @JsonProperty("risco_padrao_golpe")
         int riscoPadraoGolpe,
 
-        String mensagem
+        String mensagem,
+        double porcentagem
 ) {}
