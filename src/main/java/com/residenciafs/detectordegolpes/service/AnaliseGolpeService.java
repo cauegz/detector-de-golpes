@@ -14,11 +14,11 @@ public class AnaliseGolpeService {
 
     public String classificacaoRisco(double porcentagem){
         if(porcentagem >= 75){
-            return "ALTO RISCO => Porcentagem: "+porcentagem;
+            return "ALTO RISCO => Porcentagem: "+(int)porcentagem+"%";
         }else if(porcentagem>=40){
-            return "MEDIO RISCO => Porcentagem: "+porcentagem;
+            return "MEDIO RISCO => Porcentagem: "+(int)porcentagem+"%";
         }else{
-            return "BAIXO RISCO => Porcentagem: "+porcentagem;
+            return "BAIXO RISCO => Porcentagem: "+(int)porcentagem+"%";
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.residenciafs.detectordegolpes.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record MensagemResponse(
@@ -16,5 +17,5 @@ public record MensagemResponse(
         int riscoPadraoGolpe,
 
         String mensagem,
-        double porcentagem
+        String porcentagem
 ) {}
