@@ -33,3 +33,8 @@ build/
 .vscode/
 
 .env
+
+
+### PostMan ###
+/.postman/
+/postman/
