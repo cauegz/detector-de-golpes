@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:8080/api/ai
+description: ""
+url: http://localhost:8080/api/ai
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"mensagem\": \"⚠️ ATENÇÃO! Detectamos uma tentativa de acesso suspeita à sua conta. Para evitar o bloqueio permanente, redefina sua senha imediatamente. Caso contrário, seu acesso será suspenso nas próximas 24 horas.\",\r
+
+    \  \"contexto\": \"Mensagem com tom de urgência e intimidação, incentivando uma ação imediata.\",\r
+
+    \  \"empresa\": \"Banco Itaú\",\r
+
+    \  \"meioComunicacao\": \"SMS\"\r
+
+    }"
+order: 1785415279544
