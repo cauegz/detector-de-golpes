@@ -4,6 +4,7 @@ import com.residenciafs.detectordegolpes.dto.MensagemRequest;
 import com.residenciafs.detectordegolpes.dto.MensagemResponse;
 import com.residenciafs.detectordegolpes.service.AnaliseGolpeService;
 import com.residenciafs.detectordegolpes.service.GeminiService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class DetectorController {
     }
 
     @PostMapping
-    public MensagemResponse analisarRequest (@RequestBody MensagemRequest request){
+    public MensagemResponse analisarRequest (@Valid @RequestBody MensagemRequest request){
         MensagemResponse response = gemini.analisarMensagemBase(request);
         double porcentagem = analise.calcularPorcentagem(
                 response.incompatibilidadeContexto(),
