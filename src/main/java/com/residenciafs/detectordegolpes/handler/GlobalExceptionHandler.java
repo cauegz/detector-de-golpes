@@ -3,11 +3,14 @@ package com.residenciafs.detectordegolpes.handler;
 import com.residenciafs.detectordegolpes.dto.ErroResponse;
 import com.residenciafs.detectordegolpes.exception.APIKeyInvalid;
 import com.residenciafs.detectordegolpes.exception.GeminiException;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -26,7 +29,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErroResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
+        String detalhe = e.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.joining("; "));
+
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ErroResponse("Campos faltando", e.getMessage()));
+                .body(new ErroResponse("Campos faltando",
+                        detalhe.isBlank() ? "Erro de validação" : detalhe));
     }
 }
