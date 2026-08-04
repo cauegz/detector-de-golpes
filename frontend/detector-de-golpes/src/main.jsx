@@ -6,6 +6,7 @@ import App from './App.jsx'
 document.documentElement.setAttribute("data-theme", "dracula");
 
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

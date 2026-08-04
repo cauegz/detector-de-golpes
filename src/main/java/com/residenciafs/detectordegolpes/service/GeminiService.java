@@ -1,8 +1,7 @@
 package com.residenciafs.detectordegolpes.service;
 
 import com.residenciafs.detectordegolpes.dto.MensagemRequest;
-import com.residenciafs.detectordegolpes.dto.MensagemResponse;
-import com.residenciafs.detectordegolpes.exception.APIKeyInvalid;
+import com.residenciafs.detectordegolpes.dto.GeminiMensagemResponse;
 import com.residenciafs.detectordegolpes.exception.GeminiException;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.prompt.PromptTemplate;
@@ -23,18 +22,12 @@ public class GeminiService {
 
     public GeminiService(ChatClient.Builder chatClientBuilder,
                          @Value("classpath:prompts/base.txt")
-                         Resource promptResource,
-
-                         @Value("${spring.ai.google.genai.api-key:}")
-                         String apiKey){
+                         Resource promptResource){
         this.chatClient = chatClientBuilder.build();
         this.resource = promptResource;
-        if(apiKey == null || apiKey.isBlank()){
-            throw new APIKeyInvalid("GEMINI_API_KEY deve ser definida em um arquivo .env");
-        }
     }
 
-    public MensagemResponse analisarMensagemBase(MensagemRequest mensagem) {
+    public GeminiMensagemResponse analisarMensagemBase(MensagemRequest mensagem) {
         try {
             PromptTemplate promptTemplate =
                     new PromptTemplate(resource);
@@ -51,11 +44,10 @@ public class GeminiService {
                     .prompt()
                     .user(promptCompleto)
                     .call() //sends a request to the AI model
-                    .entity(MensagemResponse.class); //returns the AI model's response as a entity
+                    .entity(GeminiMensagemResponse.class); //returns the AI model's response as a entity
         } catch (Exception e){
             log.error("Falha ao chamar o Gemini", e);
             throw new GeminiException("Erro de comunicação com o gemini: " + e.getMessage(), e);
         }
     }
 }
-
