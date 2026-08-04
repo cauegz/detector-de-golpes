@@ -7,7 +7,8 @@
 </tarefa>
 
 <contexto>
-    Você irá retornar um feedback para um usuário sobre uma mensagem suspeita que recebeu, mostrando a possibilidade da mensagem ser criminosa
+    Você irá retornar um feedback para um usuário sobre uma mensagem suspeita que recebeu, mostrando a possibilidade da mensagem ser criminosa.
+    O contexto informado pelo usuário é o seguinte: {contexto}
 </contexto>
 
 <meio_comunicacao>
