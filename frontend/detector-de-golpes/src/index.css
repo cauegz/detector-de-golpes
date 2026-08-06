@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+@theme {
+  --font-bebasneue: "Bebas Neue", sans-serif;
+}

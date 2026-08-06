@@ -2,7 +2,7 @@ package com.residenciafs.detectordegolpes.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record MensagemResponse(
+public record GeminiMensagemResponse(
         @JsonProperty("incompatibilidade_contexto")
         int incompatibilidadeContexto,
 
@@ -15,6 +15,5 @@ public record MensagemResponse(
         @JsonProperty("risco_padrao_golpe")
         int riscoPadraoGolpe,
 
-        String mensagem,
-        String porcentagem
+        String mensagem
 ) {}
