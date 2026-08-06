@@ -7,13 +7,14 @@
 </tarefa>
 
 <contexto>
-    Você irá retornar um feedback para um usuário sobre uma mensagem suspeita que recebeu, mostrando a possibilidade da mensagem ser criminosa
+    Você irá retornar um feedback para um usuário sobre uma mensagem suspeita que recebeu, mostrando a possibilidade da mensagem ser criminosa.
+    O contexto informado pelo usuário é o seguinte: {contexto}
 </contexto>
 
 <meio_comunicacao>
 A seguinte empresa: {empresa} utilizou o seguinte meio de comunicação foi utilizado para enviar a mensagem: {meioComunicacao}
-Com base nisso, você deve buscar na internet o meio de comunicação oficial daquela empresa e comparar com o que o remetente utilizou para se
-comunicar com o usuário, se o meio de comunicação for oficial você deve especificar isso na mensagem e marcar o campo "meio_comunicacao_oficial" como 0
+Avalie o meio de comunicação utilizando somente as informações fornecidas pelo usuário e o conhecimento já disponível no modelo.
+Não realize nem solicite buscas na internet. Se não houver informações suficientes para confirmar a autenticidade do canal, deixe essa incerteza clara na mensagem.
 </meio_comunicacao>
 
 <regras>
