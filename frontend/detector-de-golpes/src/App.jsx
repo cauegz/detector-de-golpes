@@ -53,7 +53,10 @@ function App() {
           </label>
           <input type="text" placeholder="Ex: empresa@dominio.com" className="input w-full placeholder:text-white/50" id="meioComunicacao" onChange={(e) => setMeioComunicacao(e.target.value)}/>
 
-          <button className="btn btn-primary mt-4" disabled={loading} onClick={enviar}>{loading ? "Analisando..." : "Analisar"}</button>
+          <button className="btn btn-primary mt-4" disabled={loading} onClick={enviar}>
+            {loading && <span className="loading loading-spinner loading-sm"></span>}
+            {loading ? "Analisando..." : "Analisar"}
+          </button>
         </div>
       </div>
       <div>
